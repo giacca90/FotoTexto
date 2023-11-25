@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Prueba Foto Pasaporte</title>
+  </head>
+  <body>
+    <h1 class="titulo">Prueba Foto De Caracteres Para Los Pasaportes</h1>
+    <br />
+    <div>
+      <p>
+        inserta el texto
+        <input id="frase" type="text" value="texto" />
+      </p>
+      <p>
+        tamaño fuente
+        <input id="fuente" type="number" value="20" />
+      </p>
+    </div>
+    <br />
+    <input
+      type="file"
+      id="upload"
+      multiple="false"
+      accept="image/png"
+      onchange="subeImagen()"
+    />
+    <div>
+      <button onclick="creaTexto()">Crea Texto</button>
+    </div>
+    <div>
+      <button onclick="ejecuta()">Prueba</button>
+    </div>
+    <div>
+      <canvas id="canvas" height="300" width="300"></canvas>
+      <canvas id="canvas2" height="300" width="300"></canvas>
+      <canvas id="canvas3" height="300" width="300"></canvas>
+
+    </div>
+  </body>
+
+  <script src="index.js"></script>
+</html>
