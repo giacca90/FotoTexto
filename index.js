@@ -41,6 +41,9 @@ function ejecuta() {
         console.log(pxR);
 
         conR.putImageData(ITR,0,0);
+
+        let button = document.getElementById("descarga");
+        button.removeAttribute("hidden");
     }
 }
 
@@ -109,5 +112,12 @@ function textoLargo(texto, columnas) {
         textoLargo = textoLargo+texto;
     }
     return textoLargo
+}
+
+function descarga() {
+    let button = document.getElementById("descarga");
+
+    let image = document.getElementById("canvas3").toDataURL("image/png").replace("image/png", "image/octet-stream");
+    document.location.href = image;
 }
    
