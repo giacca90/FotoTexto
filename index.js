@@ -10,7 +10,7 @@ function ejecuta() {
         alert("No se ha seleccionado ninguna imagen!!!");
         return;
     }else{
-//        creaTexto();
+        creaTexto();
 
         let canT = document.getElementById("canvas");
         let conT = canT.getContext("2d");
@@ -27,12 +27,6 @@ function ejecuta() {
         let ITR = conR.getImageData(0,0,altoFoto,anchoFoto);
         let pxR = ITR.data;
  
-/*         console.log("pxT: "+pxT);
-
-        console.log("pxI: "+pxI);
-
-        console.log("pxR: "+pxR); */
-
         for(let i=0; i<pxT.length; i=i+4) {
             if(pxT[i+3]==0) {
                 pxR[i+3] = 0;
@@ -48,9 +42,6 @@ function ejecuta() {
 
         conR.putImageData(ITR,0,0);
     }
-    
-        
-    
 }
 
 function subeImagen() {
@@ -61,12 +52,9 @@ function subeImagen() {
     let con = can.getContext("2d");
     img = input.files[0];
     let reader = new FileReader();
-
         reader.onload = function(e) {
             let imgi = new Image();
             imgi.src = e.target.result;
-/*             foto.src = e.target.result; */
-/*             foto.style.display = 'block'; */    
             imgi.onload = function() {
                 altoFoto = imgi.height;
                 anchoFoto = imgi.width
@@ -79,13 +67,13 @@ function subeImagen() {
                 con.drawImage(imgi,0,0,anchoFoto,altoFoto);
             }   
         };
-        reader.readAsDataURL(img);
-
+    reader.readAsDataURL(img);
 }
 
 function creaTexto() {
     let texto = document.getElementById("frase").value;
     let font = document.getElementById("fuente").value;
+    let fonts = document.getElementById("fonts").value;
     let can = document.getElementById("canvas");
     let con = can.getContext("2d");
     let multiplicador = altoFoto / font;
@@ -93,7 +81,7 @@ function creaTexto() {
     let reTexto = texto;
 
     con.clearRect(0, 0, can.width, can.height);
-    con.font= font+"px Arial";
+    con.font= font+"px "+fonts;
     con.fillStyle = "black";
     for(let i=0; i<multiplicador; i++) {
         let rt = ReTexto(reTexto)
