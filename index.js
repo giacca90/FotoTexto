@@ -1,9 +1,9 @@
 /* FotoTexto
 Esta pequeña App funciona interamente en el front, 
 por eso su eficiencia depende del equipo donde se execute.
-No me he complicado la vida en obtimizarla mucho o maquetarla,
+No me he complicado la vida en optimizarla mucho o maquetarla,
 considerando que es solo para uso interno.
-Para no complicare con tema de licencias, no he utilizado 
+Para no complicarme con tema de licencias, no he utilizado 
 librerias externas, lo unico externo que utilize 
 fuernos las fuentes de Google. 
 Las fotos tienen que ser .png y con trasparencia!!!*/
@@ -36,6 +36,16 @@ function ejecuta() {
         let conR = canR.getContext("2d");
         let ITR = conR.getImageData(0,0,altoFoto,anchoFoto);
         let pxR = ITR.data;
+
+        /* El principio del algoritmo es que el data del objecto ImageData
+        devuelve un array de enteros que representa a cada uno de los 
+        cuatro valores RGBA consecutivamente, es decir, las posiciones
+        del array desde el 0 hasta el 3 representa el primer pixen,
+        desde la posicion 4 hasta la 7 el segundo pixel y asi consecutivamente.
+        
+        El efecto se crea al comprobar si el valor de Alfa de cada pixel de 
+        la imagen del texto replicado es distinto a 0, y si asi es entonces
+        pone el pixen de la foto da replicar.*/
  
         for(let i=0; i<pxT.length; i=i+4) {
             if(pxT[i+3]==0) {

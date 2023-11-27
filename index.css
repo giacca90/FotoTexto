@@ -7,28 +7,6 @@
     color:red;
 }
 
-.contenedor {
-    position: relative;
-    width: 300px; /* Ancho de tu imagen */
-    height: 300px; /* Altura de tu imagen */
-}
-
-.texto{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: url();
-    color:white; /* Color del texto */
-    font-size: 24px; /* Tamaño de fuente del texto */
-    font-weight: bold; /* Peso de la fuente */
-    /* text-align: center; */
-    background-clip: text; /* Permite que el fondo se vea a través del texto */
-    -webkit-background-clip: text;
-}
-
 #canvas, #canvas2, #canvas3 {
-  /* width: 300px; 
-  height: 300px; */ 
   border: 1px solid #c3c3c3;
 }
