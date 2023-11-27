@@ -115,9 +115,9 @@ function textoLargo(texto, columnas) {
 }
 
 function descarga() {
-    let button = document.getElementById("descarga");
-
-    let image = document.getElementById("canvas3").toDataURL("image/png").replace("image/png", "image/octet-stream");
-    document.location.href = image;
+    let texto = document.getElementById("frase").value;
+    let link = document.createElement('a');
+    link.href = document.getElementById("canvas3").toDataURL("image/png").replace("image/png", "image/octet-stream");
+    link.download = 'FotoTexto-'+texto+'.png';
+    link.click();
 }
-   
