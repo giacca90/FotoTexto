@@ -1,4 +1,14 @@
-let img = null;
+/* FotoTexto
+Esta pequeña App funciona interamente en el front, 
+por eso su eficiencia depende del equipo donde se execute.
+No me he complicado la vida en obtimizarla mucho o maquetarla,
+considerando que es solo para uso interno.
+Para no complicare con tema de licencias, no he utilizado 
+librerias externas, lo unico externo que utilize 
+fuernos las fuentes de Google. 
+Las fotos tienen que ser .png y con trasparencia!!!*/
+
+let img = null; 
 let imgTexto = new Image();
 let altoFoto = 300;
 let anchoFoto = 300;
@@ -47,7 +57,7 @@ function ejecuta() {
     }
 }
 
-function subeImagen() {
+function subeImagen() { //Carga la imagen y redimensiona los tres canvas en base al tamaño de la foto.
     let input = document.getElementById('upload');
     let can = document.getElementById("canvas2");
     let can2 = document.getElementById("canvas");
@@ -73,7 +83,7 @@ function subeImagen() {
     reader.readAsDataURL(img);
 }
 
-function creaTexto() {
+function creaTexto() { //crea la imagen con el texo repetido
     let texto = document.getElementById("frase").value;
     let font = document.getElementById("fuente").value;
     let fonts = document.getElementById("fonts").value;
@@ -96,7 +106,7 @@ function creaTexto() {
     imgTexto.src = imgT;
 }
 
-function ReTexto(texto) {
+function ReTexto(texto) { //Crea el efecto de desplazamiento de la frase
     let reTexto = "";
     for(let k=0; k<texto.length-1; k++) {
         reTexto = reTexto+texto[k+1];
@@ -106,7 +116,7 @@ function ReTexto(texto) {
     return reTexto;
 }
 
-function textoLargo(texto, columnas) {
+function textoLargo(texto, columnas) { //Crea una fila de texto repetido
     let textoLargo = texto;
     for(let i=0; i<columnas; i++) {
         textoLargo = textoLargo+texto;
@@ -114,7 +124,7 @@ function textoLargo(texto, columnas) {
     return textoLargo
 }
 
-function descarga() {
+function descarga() { //Descarga el resultado en formato .png
     let texto = document.getElementById("frase").value;
     let link = document.createElement('a');
     link.href = document.getElementById("canvas3").toDataURL("image/png").replace("image/png", "image/octet-stream");
